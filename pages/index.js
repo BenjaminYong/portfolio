@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import Toggle from "../components/Toggler";
+import Toggle from "../components/toggle";
 
 const Header = styled.div`
   max-width: 50rem;
