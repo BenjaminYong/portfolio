@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import Toggle from "../components/Toggler";
 
 const Header = styled.div`
   max-width: 50rem;
@@ -31,22 +32,36 @@ const HeaderText = styled.p`
   font-size: 4em;
 `;
 
-const Home = () => {
+const ThemeButtonContainer = styled.div`
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
+`;
+
+const Home = (props) => {
+  function handleChangeTheme(event) {
+    props.changeTheme();
+  }
   return (
-    <Header>
-      <HeaderText>
-        <div>Benjamin Yong.</div>
-        <div>Software Developer.</div>
-        <div>
-          Connect with me on{" "}
-          <a href="https://www.linkedin.com/in/benjamin-yong1/">LinkedIn</a>.
-        </div>
-        <div>
-          Check out my work on{" "}
-          <a href="https://github.com/BenjaminYong">GitHub</a>.
-        </div>
-      </HeaderText>
-    </Header>
+    <div>
+      <ThemeButtonContainer>
+        <Toggle theme={props.theme} toggleTheme={handleChangeTheme} />
+      </ThemeButtonContainer>
+      <Header>
+        <HeaderText>
+          <div>Benjamin Yong.</div>
+          <div>Software Developer.</div>
+          <div>
+            Connect with me on{" "}
+            <a href="https://www.linkedin.com/in/benjamin-yong1/">LinkedIn</a>.
+          </div>
+          <div>
+            Check out my work on{" "}
+            <a href="https://github.com/BenjaminYong">GitHub</a>.
+          </div>
+        </HeaderText>
+      </Header>
+    </div>
   );
 };
 
